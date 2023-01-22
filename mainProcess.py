@@ -192,7 +192,7 @@ while running:
                 if variables.tetrisMenuModifier == 'width':
                     if variables.gameWidth < 40 and event.key == pygame.K_EQUALS:
                         variables.gameWidth += 1
-                    elif variables.gameWidth > 0 and event.key == pygame.K_MINUS:
+                    elif variables.gameWidth > 3 and event.key == pygame.K_MINUS:
                         variables.gameWidth -= 1
                 elif variables.tetrisMenuModifier == 'height':
                     if variables.gameHeight < 40 and event.key == pygame.K_EQUALS:

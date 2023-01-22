@@ -27,7 +27,7 @@ movementStop = False
 leaderList = []
 bg = pygame.image.load(constants.mainMenu)
 pygame.mixer.music.load("data/sfx_and_music/sweden.mp3")
-pygame.mixer.music.set_volume(0.1)
+pygame.mixer.music.set_volume(0.09)
 dropSound = pygame.mixer.Sound("data/sfx_and_music/Tink.wav")
 clearSound = pygame.mixer.Sound("data/sfx_and_music/Glass.wav")
 tetrisMenuModifier = ''
