@@ -9,6 +9,8 @@
 # Tet-a-tetris
 ## This mode is just like normal Tetris, but the pieces fall from four different sides. The objective is the same, but the strategies to get more points are different
 * **
+## To play, run mainProcess.py
+***
 ## Controls
 * Move your pieces using these arrow keys: ← →
 * Rotate them using the ↑ (up) arrow key
