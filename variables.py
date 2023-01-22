@@ -33,5 +33,6 @@ clearSound = pygame.mixer.Sound("data/sfx_and_music/Glass.wav")
 tetrisMenuModifier = ''
 linesModified = False
 choosingLevelManually = False
-levelTet = 'data/levels/level1.txt'
+levelTet = ''
+cursorPNG = 'data/cursors/Zmini.PNG'
 framed = 0

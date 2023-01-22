@@ -1,4 +1,5 @@
 import pygame
+import random
 import tableManagementTetris, variables, guiScreens, guiTetris, constants
 
 boardTopX = constants.boardCentreX - variables.gameWidth / 2
@@ -11,9 +12,10 @@ timeClock = pygame.time.Clock()
 
 tableManagementTetris.randomiser().randomiseletter()
 variables.pygame.mixer.music.play(-1)
-cursor = pygame.image.load('data/cursors/Zmini.PNG').convert_alpha()
-pygame.mouse.set_visible(False)
+variables.cursorPNG = f"data/cursors/{random.choice(constants.letters)}mini.PNG"
+cursor = pygame.image.load(variables.cursorPNG).convert_alpha()
 cursor_rect = cursor.get_rect()
+pygame.mouse.set_visible(False)
 
 running = True
 while running:
