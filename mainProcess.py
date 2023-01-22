@@ -11,7 +11,7 @@ timeClock = pygame.time.Clock()
 
 tableManagementTetris.randomiser().randomiseletter()
 variables.pygame.mixer.music.play(-1)
-cursor = pygame.image.load('Zmini.PNG').convert_alpha()
+cursor = pygame.image.load('data/cursors/Zmini.PNG').convert_alpha()
 pygame.mouse.set_visible(False)
 cursor_rect = cursor.get_rect()
 
@@ -104,14 +104,6 @@ while running:
                     variables.rotator, variables.keyed = variables.keyed, ''
                 elif event.key == pygame.K_SLASH and variables.gameState == 'Tetris':
                     variables.rotor += 1
-        # if not variables.movementStop:
-        #     movementPauseL, movementPauseR, rotLock = False, False, False
-        # else:
-        #     tableManagementTetris.tableHandler().convertToFallen()
-        #     scoreTemp, linesClearedTemp = tableManagementTetris.tableHandler().lineEraser()
-        #     variables.score += scoreTemp * (1 + variables.stage)
-        #     variables.linesCleared += linesClearedTemp
-        #     variables.holdPause = False
         movementPauseL, movementPauseR, rotLock = False, False, False
         if variables.movementStop:
             tableManagementTetris.tableHandler().convertToFallen()
@@ -183,12 +175,15 @@ while running:
             elif cursor_rect.colliderect(
                     constants.tetrisHRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_h:
                 variables.tetrisMenuModifier = 'height'
+                variables.choosingLevelManually = False
             elif cursor_rect.colliderect(
                     constants.tetrisWRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_w:
                 variables.tetrisMenuModifier = 'width'
+                variables.choosingLevelManually = False
             elif cursor_rect.colliderect(
                     constants.tetrisSRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_s:
                 variables.tetrisMenuModifier = 'stage'
+                variables.choosingLevelManually = False
             elif event.type == pygame.KEYDOWN and event.key in (
                     pygame.K_EQUALS, pygame.K_MINUS) and variables.tetrisMenuModifier:
                 if variables.tetrisMenuModifier == 'width':
@@ -212,13 +207,16 @@ while running:
                 variables.choosingLevelManually = True
             elif cursor_rect.colliderect(
                     constants.tetris1Rect) or event.type == pygame.KEYDOWN and event.key == pygame.K_1:
-                variables.levelTet = 'level1.txt'
+                variables.levelTet = 'data/levels/level1.txt'
+                variables.gameWidth, variables.gameHeight = 10, 20
             elif cursor_rect.colliderect(
                     constants.tetris2Rect) or event.type == pygame.KEYDOWN and event.key == pygame.K_2:
-                variables.levelTet = 'level2.txt'
+                variables.levelTet = 'data/levels/level2.txt'
+                variables.gameWidth, variables.gameHeight = 16, 16
             elif cursor_rect.colliderect(
                     constants.tetris3Rect) or event.type == pygame.KEYDOWN and event.key == pygame.K_3:
-                variables.levelTet = 'level3.txt'
+                variables.levelTet = 'data/levels/level3.txt'
+                variables.gameWidth, variables.gameHeight = 16, 20
         hei = constants.fontL.render(str(variables.gameHeight), True, (0, 23, 43))
         wid = constants.fontL.render(str(variables.gameWidth), True, (0, 23, 43))
         stg = constants.fontL.render(str(variables.linesCleared / 10), True, (0, 23, 43))

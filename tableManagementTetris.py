@@ -21,10 +21,10 @@ class infoBlock():
         x2, y2 = (constants.tetrominod(0, 0).get(letter)[1])
         x3, y3 = (constants.tetrominod(0, 0).get(letter)[2])
         x4, y4 = (constants.tetrominod(0, 0).get(letter)[3])
-        guiTetris.tetrominoBlock(x1 + xdisc, y1 + ydisc, letter + 'mino.png', False).update(screen)
-        guiTetris.tetrominoBlock(x2 + xdisc, y2 + ydisc, letter + 'mino.png', False).update(screen)
-        guiTetris.tetrominoBlock(x3 + xdisc, y3 + ydisc, letter + 'mino.png', False).update(screen)
-        guiTetris.tetrominoBlock(x4 + xdisc, y4 + ydisc, letter + 'mino.png', False).update(screen)
+        guiTetris.tetrominoBlock(x1 + xdisc, y1 + ydisc, 'data/squares/' + letter + 'mino.png', False).update(screen)
+        guiTetris.tetrominoBlock(x2 + xdisc, y2 + ydisc, 'data/squares/' + letter + 'mino.png', False).update(screen)
+        guiTetris.tetrominoBlock(x3 + xdisc, y3 + ydisc, 'data/squares/' + letter + 'mino.png', False).update(screen)
+        guiTetris.tetrominoBlock(x4 + xdisc, y4 + ydisc, 'data/squares/' + letter + 'mino.png', False).update(screen)
 
 
 class tableHandler():
@@ -84,7 +84,7 @@ class screenRefresh():
         for y in range(variables.gameHeight):
             for x in range(variables.gameWidth):
                 if variables.classicBase[y][x] not in ('*', 'BACK'):
-                    block = guiTetris.tetrominoBlock(x, y, variables.classicBase[y][x].upper() + 'mino.png')
+                    block = guiTetris.tetrominoBlock(x, y, 'data/squares/' + variables.classicBase[y][x].upper() + 'mino.png')
                     block.update(screen)
 
 

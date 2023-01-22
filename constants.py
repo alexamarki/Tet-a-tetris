@@ -10,12 +10,12 @@ blockScale = 24
 startCornerXtet = 3
 startCornerY = 0
 letters = ['j', 'l', 'o', 'i', 's', 'z', 't']
-gameOver = 'death_bg.PNG'
-mainMenu = 'mainMenu_bg.PNG'
-leaderBoard = 'leader_bg.PNG'
-tetrisMenu = 'tetrisMenu_bg.PNG'
-tet_A = 'test_bg.PNG'
-tet = 'tetrisGame_bg.PNG'
+gameOver = 'data/backgrounds/death_bg.PNG'
+mainMenu = 'data/backgrounds/mainMenu_bg.PNG'
+leaderBoard = 'data/backgrounds/leader_bg.PNG'
+tetrisMenu = 'data/backgrounds/tetrisMenu_bg.PNG'
+tet_A = 'data/backgrounds/test_bg.PNG'
+tet = 'data/backgrounds/tetrisGame_bg.PNG'
 
 
 def tetrominod(x, y):
@@ -32,9 +32,9 @@ def tetrominod(x, y):
 
 
 # cnst.text+.sprites
-font = pygame.font.Font('boldTestFont.ttf', 24)
-fontL = pygame.font.Font('boldTestFont.ttf', 48)
-fontExtra = pygame.font.Font('boldTestFont.ttf', 128)
+font = pygame.font.Font('data/fonts/boldTestFont.ttf', 24)
+fontL = pygame.font.Font('data/fonts/boldTestFont.ttf', 48)
+fontExtra = pygame.font.Font('data/fonts/boldTestFont.ttf', 128)
 img = font.render('SCORE', True, (0, 23, 43))
 img2 = font.render('NEXT', True, (0, 23, 43))
 img3 = font.render('HOLD', True, (0, 23, 43))

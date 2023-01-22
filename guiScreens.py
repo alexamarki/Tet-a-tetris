@@ -12,14 +12,14 @@ class screens():
             variables.username = ''
             variables.elapsedT = 0
             # maybe ^^^
-            variables.tickSpeed = 1000 / 3
             variables.nextLetter = ''
             variables.score = 0
             variables.all_sprites = pygame.sprite.Group()
             variables.holdPause = False
             if not variables.linesModified:
                 variables.linesCleared = 0
-            variables.stage = 0
+            variables.stage = variables.linesCleared // 10
+            variables.tickSpeed = (1 / (3 + variables.stage)) * 1000
             variables.keyed = ''
             variables.rotator = ''
             variables.movementStop = False
@@ -33,7 +33,7 @@ class screens():
             variables.screen = pygame.display.set_mode((constants.width, constants.height))
 
             if gs == 'Tet-a-tet':
-                with open("input.txt", "r") as file:
+                with open("data/levels/input.txt", "r") as file:
                     variables.classicBase = [[x for x in line.split()] for line in file]
                     variables.gameHeight = 40
                     variables.gameWidth = 40

@@ -1,7 +1,7 @@
 import pygame
 import constants, variables
 
-with open("input.txt", "r") as file:
+with open("data/levels/input.txt", "r") as file:
     classicBase = [[x for x in line.split()] for line in file]
     gameHeight = len(classicBase)
     gameWidth = len(classicBase[0])
@@ -35,5 +35,5 @@ class tetrominoBlock(pygame.sprite.Sprite):
 
 class AnimationExc(pygame.sprite.Sprite):
     def blitIt(self):
-        variables.screen.blit(pygame.image.load(f'frame{int(variables.framed % 11 // 1) + 1}.png').convert_alpha(),
+        variables.screen.blit(pygame.image.load(f'data/exclamationAnimationFrames/frame{int(variables.framed % 11 // 1) + 1}.png').convert_alpha(),
                               (780, 30))

@@ -26,12 +26,12 @@ inputAct = False
 movementStop = False
 leaderList = []
 bg = pygame.image.load(constants.mainMenu)
-pygame.mixer.music.load("sweden.mp3")
+pygame.mixer.music.load("data/sfx_and_music/sweden.mp3")
 pygame.mixer.music.set_volume(0.1)
-dropSound = pygame.mixer.Sound("Tink.wav")
-clearSound = pygame.mixer.Sound("Glass.wav")
+dropSound = pygame.mixer.Sound("data/sfx_and_music/Tink.wav")
+clearSound = pygame.mixer.Sound("data/sfx_and_music/Glass.wav")
 tetrisMenuModifier = ''
 linesModified = False
 choosingLevelManually = False
-levelTet = 'level1.txt'
+levelTet = 'data/levels/level1.txt'
 framed = 0
