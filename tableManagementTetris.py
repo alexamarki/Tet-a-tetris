@@ -197,7 +197,7 @@ class leader():
     def acquireLeaders(self):
         with open("leader.json", "r") as leaderboardFile:
             lb = json.load(leaderboardFile)
-        variables.leaderList = sorted(lb.items(), key=lambda item: item[1])[:10][::-1]
+        variables.leaderList = sorted(lb.items(), key=lambda item: item[1])[::-1][:10]
         count = 0
         for i in variables.leaderList:
             person = constants.fontL.render(i[0], True, (0, 23, 43))

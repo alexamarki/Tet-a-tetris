@@ -104,9 +104,16 @@ while running:
                     variables.rotator, variables.keyed = variables.keyed, ''
                 elif event.key == pygame.K_SLASH and variables.gameState == 'Tetris':
                     variables.rotor += 1
-        if not variables.movementStop:
-            movementPauseL, movementPauseR, rotLock = False, False, False
-        else:
+        # if not variables.movementStop:
+        #     movementPauseL, movementPauseR, rotLock = False, False, False
+        # else:
+        #     tableManagementTetris.tableHandler().convertToFallen()
+        #     scoreTemp, linesClearedTemp = tableManagementTetris.tableHandler().lineEraser()
+        #     variables.score += scoreTemp * (1 + variables.stage)
+        #     variables.linesCleared += linesClearedTemp
+        #     variables.holdPause = False
+        movementPauseL, movementPauseR, rotLock = False, False, False
+        if variables.movementStop:
             tableManagementTetris.tableHandler().convertToFallen()
             scoreTemp, linesClearedTemp = tableManagementTetris.tableHandler().lineEraser()
             variables.score += scoreTemp * (1 + variables.stage)
@@ -135,10 +142,10 @@ while running:
             if event.type == pygame.QUIT:
                 running = False
             elif cursor_rect.colliderect(
-                    constants.tetrisMRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_m:
+                    constants.tetrisMRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_m and not variables.inputAct:
                 guiScreens.screens().setScreenTo(constants.mainMenu, 'The Tetris experience', 'mainMenu')
             elif cursor_rect.colliderect(
-                    constants.tetrisTRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_t:
+                    constants.tetrisTRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_t and not variables.inputAct:
                 variables.inputAct = True
             elif (cursor_rect.colliderect(
                     constants.tetrisENTERRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN) and variables.inputAct:
@@ -149,7 +156,7 @@ while running:
                 variables.username = variables.username[:-1]
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_x and pygame.key.get_mods() & pygame.KMOD_CTRL and variables.inputAct:
                 variables.username = ''
-            elif variables.inputAct:
+            elif event.type == pygame.KEYDOWN and variables.inputAct:
                 variables.username += event.unicode
         inp = constants.fontL.render(f"User: {variables.username}", True, (0, 23, 43))
         scr = constants.fontExtra.render(f"Score: {variables.score}", True, (0, 23, 43))

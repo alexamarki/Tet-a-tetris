@@ -10,6 +10,8 @@ class screens():
             variables.linesModified = False
         if gs == 'Tet-a-tet' or gs == 'Tetris':
             variables.username = ''
+            variables.elapsedT = 0
+            # maybe ^^^
             variables.tickSpeed = 1000 / 3
             variables.nextLetter = ''
             variables.score = 0
@@ -27,7 +29,7 @@ class screens():
                 variables.rotor = 1
             variables.holdContainer = ''
             tableManagementTetris.randomiser().randomiseletter()
-            variables.currentTetromino = []
+            variables.current_tetromino = []
             variables.screen = pygame.display.set_mode((constants.width, constants.height))
 
             if gs == 'Tet-a-tet':
