@@ -18,7 +18,7 @@ class screens():
             variables.holdPause = False
             if not variables.linesModified:
                 variables.linesCleared = 0
-            variables.stage = variables.linesCleared // 10
+            variables.stage = int(variables.linesCleared // 10)
             variables.tickSpeed = (1 / (3 + variables.stage)) * 1000
             variables.keyed = ''
             variables.rotator = ''

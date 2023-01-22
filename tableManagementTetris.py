@@ -74,7 +74,7 @@ class tableHandler():
         elif count == 3:
             score = 200
         elif count >= 4:
-            score = 300 * (count / 4)
+            score = 300 * (count // 4)
         return score, count
 
 

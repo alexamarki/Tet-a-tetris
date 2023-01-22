@@ -222,7 +222,7 @@ while running:
                 variables.gameWidth, variables.gameHeight = 16, 20
         hei = constants.fontL.render(str(variables.gameHeight), True, (0, 23, 43))
         wid = constants.fontL.render(str(variables.gameWidth), True, (0, 23, 43))
-        stg = constants.fontL.render(str(variables.linesCleared / 10), True, (0, 23, 43))
+        stg = constants.fontL.render(str(int(variables.linesCleared / 10)), True, (0, 23, 43))
         variables.screen.blit(hei, (430, 640))
         variables.screen.blit(wid, (430, 700))
         variables.screen.blit(stg, (430, 760))
