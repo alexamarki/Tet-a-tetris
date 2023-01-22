@@ -111,7 +111,7 @@ class tetrominoDisplay():
     def movementCheck(self, yMod, xMod):
         allowed = True
         for i in variables.current_tetromino:
-            if i[1] + yMod >= variables.gameHeight or i[0] + xMod >= variables.gameWidth or i[0] - xMod < 0:
+            if i[1] + yMod >= variables.gameHeight or i[0] + xMod >= variables.gameWidth or i[0] + xMod < 0:
                 allowed = False
         if allowed:
             for i in variables.current_tetromino:
@@ -184,18 +184,18 @@ class holding():
 
 class leader():
     def add(self, user, score):
-        with open("leader.json", "r") as leaderboardFile:
+        with open("data/leaderboard/leader.json", "r") as leaderboardFile:
             lb = json.load(leaderboardFile)
         if user in lb:
             if lb[user] < score:
                 lb[user] = score
         else:
             lb[user] = score
-        with open("leader.json", "w") as leaderboardFile:
+        with open("data/leaderboard/leader.json", "w") as leaderboardFile:
             json.dump(lb, leaderboardFile)
 
     def acquireLeaders(self):
-        with open("leader.json", "r") as leaderboardFile:
+        with open("data/leaderboard/leader.json", "r") as leaderboardFile:
             lb = json.load(leaderboardFile)
         variables.leaderList = sorted(lb.items(), key=lambda item: item[1])[::-1][:10]
         count = 0
