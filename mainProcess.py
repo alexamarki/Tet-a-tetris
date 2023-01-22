@@ -133,8 +133,15 @@ while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            elif cursor_rect.colliderect(
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_BACKSPACE and variables.inputAct:
+                variables.username = variables.username[:-1]
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_x and pygame.key.get_mods() & pygame.KMOD_CTRL and variables.inputAct:
+                variables.username = ''
+            elif event.type == pygame.KEYDOWN and variables.inputAct and event.key != pygame.K_RETURN:
+                variables.username += event.unicode
+            if cursor_rect.colliderect(
                     constants.tetrisMRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_m and not variables.inputAct:
+                variables.inputAct = False
                 guiScreens.screens().setScreenTo(constants.mainMenu, 'The Tetris experience', 'mainMenu')
             elif cursor_rect.colliderect(
                     constants.tetrisTRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_t and not variables.inputAct:
@@ -144,12 +151,6 @@ while running:
                 variables.inputAct = False
                 tableManagementTetris.leader().add(variables.username, variables.score)
                 guiScreens.screens().setScreenTo(constants.mainMenu, 'The Tetris experience', 'mainMenu')
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_BACKSPACE and variables.inputAct:
-                variables.username = variables.username[:-1]
-            elif event.type == pygame.KEYDOWN and event.key == pygame.K_x and pygame.key.get_mods() & pygame.KMOD_CTRL and variables.inputAct:
-                variables.username = ''
-            elif event.type == pygame.KEYDOWN and variables.inputAct:
-                variables.username += event.unicode
         inp = constants.fontL.render(f"User: {variables.username}", True, (0, 23, 43))
         scr = constants.fontExtra.render(f"Score: {variables.score}", True, (0, 23, 43))
         variables.screen.blit(scr, (60, 300))
@@ -184,7 +185,7 @@ while running:
                     constants.tetrisSRect) or event.type == pygame.KEYDOWN and event.key == pygame.K_s:
                 variables.tetrisMenuModifier = 'stage'
                 variables.choosingLevelManually = False
-            elif event.type == pygame.KEYDOWN and event.key in (
+            if event.type == pygame.KEYDOWN and event.key in (
                     pygame.K_EQUALS, pygame.K_MINUS) and variables.tetrisMenuModifier:
                 if variables.tetrisMenuModifier == 'width':
                     if variables.gameWidth < 40 and event.key == pygame.K_EQUALS:
